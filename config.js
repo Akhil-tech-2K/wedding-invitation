@@ -46,44 +46,23 @@ const weddingConfig = {
     // Ceremonies
     ceremonies: [
         {
-            name: "Mehendi Ceremony",
-            telugu: "మెహెందీ సంస్కారం",
-            icon: "💅",
-            date: "July 20, 2024",
-            time: "6:00 PM - 10:00 PM",
-            venue: "Venue Hall, Hyderabad"
-        },
-        {
-            name: "Sangeet Ceremony",
-            telugu: "సంగీత సంస్కారం",
-            icon: "🎵",
-            date: "July 21, 2024",
-            time: "6:00 PM - 10:00 PM",
-            venue: "Venue Hall, Hyderabad"
-        },
-        {
-            name: "Haldi Ceremony",
-            telugu: "హల్దీ సంస్కారం",
-            icon: "🌙",
-            date: "July 22, 2024",
-            time: "10:00 AM - 1:00 PM",
-            venue: "Bride's Residence, Hyderabad"
-        },
-        {
-            name: "Wedding Ceremony",
-            telugu: "వివాహ సంస్కారం",
+            name: "Sumuhurtham / Wedding Ceremony",
+            telugu: "సుముహూర్తం / వివాహ సంస్కారం",
             icon: "💍",
-            date: "July 23, 2024",
-            time: "5:00 PM Onwards",
-            venue: "Dr. Metla Satyanarayanarao Kapu Kalyana Mandapam, Gandu Street, Amalapuram"
+            date: "July 2, 2026",
+            time: "8:23 PM",
+            details: "Sravana Nakshatram • Makara Lagnam",
+            venue: "Dr. Metla Satyanarayanarao Kapu Kalyana Mandapam, Gandu Street, Amalapuram",
+            mapLink: "https://maps.app.goo.gl/zebWsFqyQCBbUdCE9"
         },
         {
             name: "Reception",
             telugu: "రిసెప్షన్",
             icon: "🎂",
-            date: "July 24, 2024",
-            time: "6:00 PM - 11:00 PM",
-            venue: "Pentakota Function Hall, Anakapalli"
+            date: "July 5, 2026",
+            time: "12:00 Noon Onwards",
+            venue: "Pentakota Function Hall, Anakapalli",
+            mapLink: "https://maps.app.goo.gl/hGMFKp3bhmyhDBiNA"
         }
     ],
 
@@ -150,7 +129,7 @@ const weddingConfig = {
     googleMapsApiKey: "YOUR_API_KEY_HERE",
 
     // Wedding Date for Countdown (if enabled)
-    weddingDate: "2024-07-23T17:00:00",
+    weddingDate: "2026-07-02T20:23:00",
 
     // Social Media & Sharing
     sharing: {
