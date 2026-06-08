@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide - Wedding Invitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '✓ ';
+            margin-right: 10px;
+            color: #764ba2;
+            font-size: 24px;
+        }
+
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .step h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .step ol {
+            margin-left: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .step li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .checklist {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist li::before {
+            content: '☐ ';
+            margin-right: 10px;
+            font-size: 18px;
+            color: #667eea;
+        }
+
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .video-guide {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎊 Wedding Invitation Website - Setup Guide</h1>
+
+        <div class="success">
+            <strong>🎉 Congratulations!</strong> Your wedding invitation website is ready. Follow these steps to customize it with your details.
+        </div>
+
+        <!-- Step 1 -->
+        <h2>Edit Bride & Groom Names</h2>
+        <div class="step">
+            <h3>Update Names in index.html</h3>
+            <ol>
+                <li>Open <code>index.html</code> in a text editor</li>
+                <li>Find the section around line 87-95 (look for "The Bride" and "The Groom")</li>
+                <li>Replace <code>&lt;h2&gt;Priya&lt;/h2&gt;</code> with your bride's name</li>
+                <li>Replace <code>&lt;h2&gt;Akhil&lt;/h2&gt;</code> with your groom's name</li>
+                <li>Update Telugu translations as needed</li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <!-- Step 2 -->
+        <h2>Configure Ceremony Details</h2>
+        <div class="step">
+            <h3>Update Dates, Times & Venues</h3>
+            <ol>
+                <li>Find each ceremony card in <code>index.html</code> (around lines 105-150)</li>
+                <li>Update the following for each ceremony:
+                    <ul style="margin-left: 40px; margin-top: 10px;">
+                        <li>Date (format: "Month DD, YYYY")</li>
+                        <li>Time (format: "HH:MM AM/PM")</li>
+                        <li>Venue (location name and address)</li>
+                    </ul>
+                </li>
+                <li>You can add or remove ceremonies by copying/deleting ceremony cards</li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <!-- Step 3 -->
+        <h2>Setup Google Maps</h2>
+        <div class="step">
+            <h3>Get API Key & Configure Location</h3>
+            <ol>
+                <li>Go to <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a></li>
+                <li>Create a new project or select existing one</li>
+                <li>Enable "Maps JavaScript API"</li>
+                <li>Create an API key (Credentials section)</li>
+                <li>Copy the API key</li>
+                <li>Open <code>index.html</code> and find line 11 with <code>&lt;script src="https://maps.googleapis.com/..."&gt;</code></li>
+                <li>Replace <code>YOUR_API_KEY_HERE</code> with your actual API key</li>
+                <li>Open <code>script.js</code> and find line 36</li>
+                <li>Update venue coordinates:
+                    <ul style="margin-left: 40px; margin-top: 10px;">
+                        <li><code>lat: 17.3850</code> - Replace with your venue latitude</li>
+                        <li><code>lng: 78.4867</code> - Replace with your venue longitude</li>
+                    </ul>
+                </li>
+                <li>Find your coordinates on <a href="https://www.google.com/maps" target="_blank">Google Maps</a> by right-clicking your venue</li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Important:</strong> Restrict your API key to your domain only. This prevents unauthorized use of your API key.
+        </div>
+
+        <!-- Step 4 -->
+        <h2>Create QR Code for RSVP</h2>
+        <div class="step">
+            <h3>Setup Google Form & QR Code</h3>
+            <ol>
+                <li>Go to <a href="https://forms.google.com/" target="_blank">Google Forms</a></li>
+                <li>Create a new form for RSVP</li>
+                <li>Add fields: Guest Name, Number of Guests, Dietary Restrictions, etc.</li>
+                <li>Click "Share" and copy the form link</li>
+                <li>Open <code>script.js</code> and find line 10</li>
+                <li>Replace <code>YOUR_RSVP_FORM_LINK_HERE</code> with your Google Form link</li>
+                <li>The QR code will automatically generate with this link</li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <!-- Step 5 -->
+        <h2>Update Contact Information</h2>
+        <div class="step">
+            <h3>Add Your Phone, Email & WhatsApp</h3>
+            <ol>
+                <li>Open <code>index.html</code> and find the contact section (around lines 278-282)</li>
+                <li>Update:
+                    <ul style="margin-left: 40px; margin-top: 10px;">
+                        <li>Phone number: <code>+91 98765 43210</code></li>
+                        <li>Email: <code>akhil.priya@email.com</code></li>
+                        <li>WhatsApp: <code>+91 98765 43210</code></li>
+                    </ul>
+                </li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <!-- Step 6 -->
+        <h2>Update Family Details</h2>
+        <div class="step">
+            <h3>Add Parents & Siblings Information</h3>
+            <ol>
+                <li>Find the "Family Details" section in <code>index.html</code> (around lines 288-310)</li>
+                <li>Update for Groom's Family:
+                    <ul style="margin-left: 40px; margin-top: 10px;">
+                        <li>Father's name</li>
+                        <li>Mother's name</li>
+                        <li>Sister/Brother name</li>
+                    </ul>
+                </li>
+                <li>Update for Bride's Family with same information</li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <!-- Step 7 -->
+        <h2>Customize Colors (Optional)</h2>
+        <div class="step">
+            <h3>Change Color Scheme</h3>
+            <ol>
+                <li>Open <code>styles.css</code> and find lines 14-19 (CSS variables)</li>
+                <li>Modify colors:
+                    <table>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Current Color</th>
+                            <th>Purpose</th>
+                        </tr>
+                        <tr>
+                            <td><code>--primary-color</code></td>
+                            <td>#D4145A</td>
+                            <td>Main red/pink</td>
+                        </tr>
+                        <tr>
+                            <td><code>--secondary-color</code></td>
+                            <td>#FDB750</td>
+                            <td>Gold/orange</td>
+                        </tr>
+                        <tr>
+                            <td><code>--accent-color</code></td>
+                            <td>#F37335</td>
+                            <td>Accent orange</td>
+                        </tr>
+                        <tr>
+                            <td><code>--gold-color</code></td>
+                            <td>#FFD700</td>
+                            <td>Gold ornaments</td>
+                        </tr>
+                    </table>
+                </li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <!-- Testing -->
+        <h2>Test Your Website</h2>
+        <div class="step">
+            <h3>Before Sharing with Guests</h3>
+            <ol>
+                <li>Open <code>index.html</code> in your web browser</li>
+                <li>Check all names and dates are correct</li>
+                <li>Verify Google Maps shows your venue</li>
+                <li>Scan QR code to verify RSVP form link works</li>
+                <li>Test on mobile devices (tablet, phone, desktop)</li>
+                <li>Check that all animations work smoothly</li>
+                <li>Verify contact information is correct</li>
+            </ol>
+        </div>
+
+        <!-- Deployment -->
+        <h2>Deploy Your Website</h2>
+        <div class="step">
+            <h3>Share with Guests Online</h3>
+            <p><strong>Choose one option:</strong></p>
+            <ol>
+                <li>
+                    <strong>Netlify (Easiest):</strong>
+                    <ul style="margin-left: 40px; margin-top: 10px;">
+                        <li>Go to <a href="https://netlify.com" target="_blank">Netlify.com</a></li>
+                        <li>Drag and drop your folder</li>
+                        <li>Your site goes live instantly!</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>GitHub Pages:</strong>
+                    <ul style="margin-left: 40px; margin-top: 10px;">
+                        <li>Push files to GitHub repository</li>
+                        <li>Enable GitHub Pages in settings</li>
+                        <li>Your site goes live on github.io</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Traditional Hosting:</strong>
+                    <ul style="margin-left: 40px; margin-top: 10px;">
+                        <li>Upload files via FTP to your hosting</li>
+                        <li>Access via your domain</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Final Checklist -->
+        <h2>Final Checklist</h2>
+        <div class="checklist">
+            <ul>
+                <li>Bride and groom names updated</li>
+                <li>All ceremony dates and times updated</li>
+                <li>Venue addresses updated</li>
+                <li>Google Maps API key configured</li>
+                <li>Venue coordinates updated on map</li>
+                <li>RSVP Google Form created</li>
+                <li>QR code link configured</li>
+                <li>Family details updated</li>
+                <li>Contact information updated</li>
+                <li>Tested on desktop and mobile</li>
+                <li>Website deployed and live</li>
+                <li>Link shared with guests</li>
+            </ul>
+        </div>
+
+        <div class="highlight">
+            <strong>💡 Tips:</strong>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Share your website link on WhatsApp, Instagram, Email</li>
+                <li>Include link in physical invitations as well</li>
+                <li>Track RSVPs through Google Form responses</li>
+                <li>Update website with new details/photos as needed</li>
+                <li>Customize colors to match your wedding theme</li>
+            </ul>
+        </div>
+
+        <div class="button-group">
+            <button class="btn" onclick="window.location.href='index.html'">
+                📖 View Your Wedding Site
+            </button>
+            <button class="btn btn-secondary" onclick="window.location.href='README.md'">
+                📚 Full Documentation
+            </button>
+        </div>
+
+        <div class="footer">
+            <p>Made with 💕 for your special day!</p>
+            <p>For more help, check the README.md file or customize further as needed.</p>
+        </div>
+    </div>
+</body>
+</html>

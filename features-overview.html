@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features Overview - Wedding Invitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            background: linear-gradient(135deg, #FFF8F3 0%, #FFE8E0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(212, 20, 90, 0.15);
+            padding: 40px;
+        }
+
+        h1 {
+            color: #D4145A;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 42px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 5px solid #D4145A;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(212, 20, 90, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            color: #D4145A;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            color: #D4145A;
+            border-bottom: 3px solid #FDB750;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .file-list {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #FDB750;
+        }
+
+        .file-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .file-list th,
+        .file-list td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .file-list th {
+            background: #D4145A;
+            color: white;
+            font-weight: bold;
+        }
+
+        .file-list tr:hover {
+            background: #f0f0f0;
+        }
+
+        .file-icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #D4145A20 0%, #FDB75020 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #D4145A;
+            text-align: center;
+        }
+
+        .step-number {
+            background: #D4145A;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .step-card h3 {
+            color: #D4145A;
+            margin: 10px 0;
+        }
+
+        .step-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe9b5 100%);
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box strong {
+            color: #856404;
+        }
+
+        .button-group {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            background: #D4145A;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #B81048;
+        }
+
+        .btn-secondary {
+            background: #FDB750;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #F0A000;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #D4145A;
+            color: #666;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #D4145A;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .check {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .flower-decoration {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎊 Your Wedding Invitation Website</h1>
+        <p class="subtitle">South Indian Telugu Wedding Celebration Platform</p>
+
+        <div class="flower-decoration">🌸 🌼 🌺 🌻 🌷</div>
+
+        <!-- Features Section -->
+        <div class="section">
+            <h2>✨ Amazing Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌸</div>
+                    <h3>Animated Flowers</h3>
+                    <p>Beautiful floating flowers with parallax scrolling effect throughout the page</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💑</div>
+                    <h3>Bride & Groom Section</h3>
+                    <p>Elegant profile sections with names and Telugu translations</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Multiple Ceremonies</h3>
+                    <p>Mehendi, Sangeet, Haldi, Wedding & Reception with complete details</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Google Maps Integration</h3>
+                    <p>Interactive map showing your wedding venue location with markers</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>QR Code for RSVP</h3>
+                    <p>Scannable QR code linked to your Google Form for easy guest responses</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>South Indian Elements</h3>
+                    <p>Telugu translations, traditional ceremonies, and cultural authenticity</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Details</h3>
+                    <p>Dedicated section for bride and groom family information</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Traditions Section</h3>
+                    <p>Information about South Indian wedding traditions and rituals</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Fully Responsive</h3>
+                    <p>Perfect display on mobile phones, tablets, and desktop computers</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Smooth Animations</h3>
+                    <p>Professional scroll effects and transitions throughout the website</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Professional Styling</h3>
+                    <p>Beautiful color scheme inspired by South Indian wedding themes</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Easy Customization</h3>
+                    <p>Simple to edit, no coding knowledge required for basic changes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Files Section -->
+        <div class="section">
+            <h2>📁 Project Files</h2>
+            <div class="file-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span class="file-icon">📄</span>File Name</th>
+                            <th>Purpose</th>
+                            <th>What to Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>index.html</strong></td>
+                            <td>Main wedding webpage</td>
+                            <td>Names, dates, contact, family info</td>
+                        </tr>
+                        <tr>
+                            <td><strong>styles.css</strong></td>
+                            <td>All styling & colors</td>
+                            <td>Colors, fonts, animations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>script.js</strong></td>
+                            <td>Functionality & interactivity</td>
+                            <td>API keys, coordinates, form links</td>
+                        </tr>
+                        <tr>
+                            <td><strong>config.js</strong></td>
+                            <td>Configuration reference</td>
+                            <td>Centralized settings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>setup-guide.html</strong></td>
+                            <td>Interactive setup instructions</td>
+                            <td>Read for guidance (no edits)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>QUICK_REFERENCE.txt</strong></td>
+                            <td>Quick customization guide</td>
+                            <td>Read for quick tips</td>
+                        </tr>
+                        <tr>
+                            <td><strong>README.md</strong></td>
+                            <td>Full documentation</td>
+                            <td>Reference guide (no edits)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Quick Start Section -->
+        <div class="section">
+            <h2>🚀 Getting Started in 5 Steps</h2>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Edit Names</h3>
+                    <p>Open index.html and change bride & groom names</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Update Dates</h3>
+                    <p>Set ceremony dates and times for your events</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Setup Maps</h3>
+                    <p>Add Google Maps API key and venue coordinates</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Create RSVP</h3>
+                    <p>Make Google Form and link QR code</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Deploy & Share</h3>
+                    <p>Upload to Netlify and share link with guests</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="section">
+            <h2>📊 What's Included vs. Templates</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Your Website</th>
+                        <th>Basic Templates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Animated Flowers</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Google Maps</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>QR Code RSVP</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Telugu Integration</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>5 Ceremony Sections</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Family Information</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Responsive Design</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Smooth Animations</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Easy Customization</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Contact Information</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Deployment Options -->
+        <div class="section">
+            <h2>🌐 Deployment Options</h2>
+            <div class="highlight-box">
+                <strong>Choose one of these easy options:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Netlify</strong> (Easiest) - Drag & drop your folder</li>
+                    <li><strong>GitHub Pages</strong> - Push to GitHub, enable Pages</li>
+                    <li><strong>Vercel</strong> - One-click deployment</li>
+                    <li><strong>Traditional Hosting</strong> - Upload via FTP</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="button-group">
+            <button class="btn" onclick="window.location.href='setup-guide.html'">
+                📖 View Setup Guide
+            </button>
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+                👁️ Preview Website
+            </button>
+            <button class="btn btn-secondary" onclick="window.location.href='QUICK_REFERENCE.txt'">
+                📋 Quick Reference
+            </button>
+        </div>
+
+        <!-- Support Section -->
+        <div class="section">
+            <h2>❓ Need Help?</h2>
+            <div class="highlight-box">
+                <strong>Resources:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Read <strong>setup-guide.html</strong> for step-by-step instructions</li>
+                    <li>Check <strong>QUICK_REFERENCE.txt</strong> for quick tips</li>
+                    <li>Review <strong>README.md</strong> for full documentation</li>
+                    <li>Visit <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a> for API key setup</li>
+                    <li>Create RSVP form at <a href="https://forms.google.com/" target="_blank">Google Forms</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flower-decoration">🌺 💕 🌺 💕 🌺</div>
+
+        <div class="footer">
+            <p><strong>Your complete wedding invitation website is ready to customize!</strong></p>
+            <p>Start by opening <strong>setup-guide.html</strong> for easy step-by-step instructions.</p>
+            <p style="margin-top: 20px; font-style: italic;">Made with 💕 for your special day</p>
+        </div>
+    </div>
+</body>
+</html>

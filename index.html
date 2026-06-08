@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Akhil & Priya</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1234567890abcdefghijklmnopqr"></script>
+</head>
+<body>
+    <!-- Animated Flowers Background -->
+    <div class="flower-animation">
+        <div class="flower flower-1">🌸</div>
+        <div class="flower flower-2">🌼</div>
+        <div class="flower flower-3">🌺</div>
+        <div class="flower flower-4">🌻</div>
+        <div class="flower flower-5">🌷</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-decoration top">
+                <span class="ornament">॥</span>
+                <span class="ornament">✦</span>
+                <span class="ornament">॥</span>
+            </div>
+            
+            <div class="header-content">
+                <h1 class="main-title">Together Forever</h1>
+                <p class="subtitle">आमंत्रण</p>
+                <p class="subtitle-en">Invitation</p>
+            </div>
+
+            <div class="header-decoration bottom">
+                <span class="ornament">॥</span>
+                <span class="ornament">✦</span>
+                <span class="ornament">॥</span>
+            </div>
+        </header>
+
+        <!-- Bride & Groom Section -->
+        <section class="couple-section">
+            <div class="couple-container">
+                <div class="bride">
+                    <div class="name-box">
+                        <p class="label">The Bride</p>
+                        <h2>Priya</h2>
+                        <p class="label-telugu">వధువు</p>
+                    </div>
+                </div>
+                <div class="and-divider">
+                    <span class="flower-icon">🌺</span>
+                    <span class="divider-text">&</span>
+                    <span class="flower-icon">🌺</span>
+                </div>
+                <div class="groom">
+                    <div class="name-box">
+                        <p class="label">The Groom</p>
+                        <h2>Akhil</h2>
+                        <p class="label-telugu">వరుడు</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding Details Section -->
+        <section class="details-section">
+            <h3 class="section-title">Wedding Ceremonies</h3>
+            
+            <div class="ceremony-card mehendi">
+                <div class="ceremony-icon">💅</div>
+                <div class="ceremony-details">
+                    <h4>Mehendi Ceremony</h4>
+                    <p class="telugu-text">మెహెందీ సంస్కారం</p>
+                    <p><strong>Date:</strong> July 20, 2024</p>
+                    <p><strong>Time:</strong> 6:00 PM - 10:00 PM</p>
+                    <p><strong>Venue:</strong> Venue Hall, Hyderabad</p>
+                </div>
+            </div>
+
+            <div class="ceremony-card sangeet">
+                <div class="ceremony-icon">🎵</div>
+                <div class="ceremony-details">
+                    <h4>Sangeet Ceremony</h4>
+                    <p class="telugu-text">సంగీత సంస్కారం</p>
+                    <p><strong>Date:</strong> July 21, 2024</p>
+                    <p><strong>Time:</strong> 6:00 PM - 10:00 PM</p>
+                    <p><strong>Venue:</strong> Venue Hall, Hyderabad</p>
+                </div>
+            </div>
+
+            <div class="ceremony-card haldi">
+                <div class="ceremony-icon">🌙</div>
+                <div class="ceremony-details">
+                    <h4>Haldi Ceremony</h4>
+                    <p class="telugu-text">హల్దీ సంస్కారం</p>
+                    <p><strong>Date:</strong> July 22, 2024</p>
+                    <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
+                    <p><strong>Venue:</strong> Bride's Residence, Hyderabad</p>
+                </div>
+            </div>
+
+            <div class="ceremony-card wedding-day">
+                <div class="ceremony-icon">💍</div>
+                <div class="ceremony-details">
+                    <h4>Wedding Ceremony</h4>
+                    <p class="telugu-text">వివాహ సంస్కారం</p>
+                    <p><strong>Date:</strong> July 23, 2024</p>
+                    <p><strong>Time:</strong> 5:00 PM Onwards</p>
+                    <p><strong>Venue:</strong> Temple Grounds, Hyderabad</p>
+                </div>
+            </div>
+
+            <div class="ceremony-card reception">
+                <div class="ceremony-icon">🎂</div>
+                <div class="ceremony-details">
+                    <h4>Reception</h4>
+                    <p class="telugu-text">రిసెప్షన్</p>
+                    <p><strong>Date:</strong> July 24, 2024</p>
+                    <p><strong>Time:</strong> 6:00 PM - 11:00 PM</p>
+                    <p><strong>Venue:</strong> Grand Hotel, Hyderabad</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location-section">
+            <h3 class="section-title">Wedding Location</h3>
+            <div id="map" class="map-container"></div>
+            <div class="location-info">
+                <p><strong>Address:</strong> Temple Road, Hyderabad, Telangana 500082</p>
+                <p><strong>Landmark:</strong> Near Charminar, Old City</p>
+                <p><a href="https://goo.gl/maps/example" target="_blank" class="map-link">📍 Open in Google Maps</a></p>
+            </div>
+        </section>
+
+        <!-- QR Code Section -->
+        <section class="qr-section">
+            <h3 class="section-title">RSVP & More Details</h3>
+            <div class="qr-container">
+                <div class="qr-box">
+                    <div id="qrcode"></div>
+                    <p class="qr-label">Scan to RSVP</p>
+                </div>
+                <div class="qr-box">
+                    <div class="qr-text-box">
+                        <h4>Join Our Celebration</h4>
+                        <p>📞 Call: +91 98765 43210</p>
+                        <p>📧 Email: akhil.priya@email.com</p>
+                        <p>💬 WhatsApp: +91 98765 43210</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Telugu Traditions Section -->
+        <section class="traditions-section">
+            <h3 class="section-title">South Indian Traditions</h3>
+            <div class="traditions-grid">
+                <div class="tradition-card">
+                    <div class="tradition-icon">👰</div>
+                    <h4>Bridal Attire</h4>
+                    <p>Traditional Saree with Kanjeevaram silk and temple jewelry</p>
+                </div>
+                <div class="tradition-card">
+                    <div class="tradition-icon">🤵</div>
+                    <h4>Groom's Attire</h4>
+                    <p>Dhoti, Shirt and Traditional Turban (Pagri)</p>
+                </div>
+                <div class="tradition-card">
+                    <div class="tradition-icon">🌸</div>
+                    <h4>Flower Decorations</h4>
+                    <p>Jasmine flowers and Marigold garlands</p>
+                </div>
+                <div class="tradition-card">
+                    <div class="tradition-icon">🎭</div>
+                    <h4>Vedic Rituals</h4>
+                    <p>Sacred ceremonies performed by Vedic priests</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Family Section -->
+        <section class="family-section">
+            <h3 class="section-title">Family Details</h3>
+            <div class="family-container">
+                <div class="family-info">
+                    <h4>Groom's Family</h4>
+                    <p><strong>Father:</strong> Mr. Ramesh</p>
+                    <p><strong>Mother:</strong> Mrs. Lakshmi</p>
+                    <p><strong>Sister:</strong> Divya</p>
+                </div>
+                <div class="family-info">
+                    <h4>Bride's Family</h4>
+                    <p><strong>Father:</strong> Mr. Suresh</p>
+                    <p><strong>Mother:</strong> Mrs. Savitri</p>
+                    <p><strong>Brother:</strong> Arjun</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-decoration">
+                <span class="ornament">॥</span>
+                <span class="ornament">✦</span>
+                <span class="ornament">॥</span>
+            </div>
+            <p class="blessing">आपकी उपस्थिति हमें सम्मानित करेगी</p>
+            <p class="blessing-en">Your Presence is Requested and Warmly Welcomed</p>
+            <p class="footer-text">With Love & Blessings</p>
+            <p class="footer-names">Akhil & Priya</p>
+            <div class="footer-decoration">
+                <span class="ornament">॥</span>
+                <span class="ornament">✦</span>
+                <span class="ornament">॥</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

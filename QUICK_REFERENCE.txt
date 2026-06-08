@@ -1,0 +1,235 @@
+# QUICK REFERENCE GUIDE
+
+## Most Important Changes (Do These First!)
+
+### 1. Change Bride & Groom Names
+**File:** index.html
+**Lines:** 88-95
+```
+Find: <h2>Priya</h2> and <h2>Akhil</h2>
+Replace with your names
+```
+
+### 2. Update Wedding Dates
+**File:** index.html
+**Lines:** 105-150
+Find each ceremony card and update:
+- Date: "July 20, 2024"
+- Time: "6:00 PM - 10:00 PM"
+- Venue: "Venue Hall, Hyderabad"
+
+### 3. Setup Google Maps API Key
+**File:** index.html
+**Line:** 11
+```
+Find: ?key=AIzaSyA1234567890abcdefghijklmnopqr
+Replace with your actual API key from Google Cloud Console
+```
+
+### 4. Update Venue Coordinates
+**File:** script.js
+**Line:** 36
+```javascript
+const venueLocation = {
+    lat: 17.3850,  // Your latitude
+    lng: 78.4867   // Your longitude
+};
+```
+
+### 5. Add RSVP Form Link
+**File:** script.js
+**Line:** 10
+```javascript
+text: 'YOUR_RSVP_FORM_LINK_HERE'
+Replace with your Google Form link
+```
+
+### 6. Update Contact Info
+**File:** index.html
+**Lines:** 278-282
+- Phone: "+91 98765 43210"
+- Email: "akhil.priya@email.com"
+- WhatsApp: "+91 98765 43210"
+
+---
+
+## File Descriptions
+
+**index.html**
+- Main webpage with all content
+- Update names, dates, contact info here
+
+**styles.css**
+- All styling and colors
+- Animations and responsive design
+- Customize colors in :root section (lines 14-19)
+
+**script.js**
+- QR code generation
+- Google Maps integration
+- Animation and scroll effects
+
+**config.js**
+- Centralized configuration file
+- Reference for all settings
+
+**setup-guide.html**
+- Interactive setup instructions
+- Open in browser for easy reading
+
+**README.md**
+- Full documentation
+- Deployment instructions
+- Troubleshooting guide
+
+---
+
+## Customization by Section
+
+### Change Wedding Theme Colors
+1. Open styles.css
+2. Find `:root` at line 14
+3. Change these values:
+   - --primary-color: #D4145A (main color)
+   - --secondary-color: #FDB750 (gold)
+   - --accent-color: #F37335 (orange)
+
+### Add More Ceremonies
+1. Find a ceremony card in index.html
+2. Copy the entire `<div class="ceremony-card">...</div>`
+3. Paste it below
+4. Update name, date, time, venue
+
+### Change Flowers
+1. Open index.html
+2. Find lines 21-25 (flower emojis)
+3. Replace emojis: 🌸 🌼 🌺 🌻 🌷
+
+### Update Family Section
+1. Open index.html
+2. Find lines 288-310
+3. Change parents' and siblings' names
+
+---
+
+## Common Issues & Fixes
+
+### Google Maps Not Showing
+- Verify API key is correct
+- Check API is enabled in Google Cloud Console
+- Clear browser cache
+- Check browser console for errors
+
+### QR Code Not Working
+- Verify form link is correct
+- Test link in new browser tab
+- Ensure form is accessible
+- QR code size should be at least 200x200px
+
+### Animations Not Working
+- Enable JavaScript in browser
+- Update browser to latest version
+- Check CSS file is loaded (check Network tab)
+
+### Responsive Design Issues
+- Test on actual mobile devices
+- Clear browser cache
+- Check media queries in styles.css
+
+---
+
+## Deployment Quick Links
+
+- **Netlify:** https://netlify.com
+- **GitHub Pages:** https://pages.github.com
+- **Vercel:** https://vercel.com
+- **Google Forms:** https://forms.google.com
+- **Google Cloud Console:** https://console.cloud.google.com
+- **Google Maps API:** https://maps.googleapis.com
+
+---
+
+## File Edit Checklist
+
+Mark completed items:
+- [ ] Update bride name in index.html
+- [ ] Update groom name in index.html
+- [ ] Update all ceremony details
+- [ ] Add Google Maps API key
+- [ ] Update venue coordinates
+- [ ] Create RSVP form
+- [ ] Add form link to QR code
+- [ ] Update contact information
+- [ ] Update family details
+- [ ] Test on mobile
+- [ ] Test Google Maps
+- [ ] Test QR code
+- [ ] Deploy website
+- [ ] Share with guests
+
+---
+
+## How to Find Your Venue Coordinates
+
+1. Go to Google Maps (https://maps.google.com)
+2. Search for your venue
+3. Right-click on the marker
+4. Click on the coordinates that appear
+5. Coordinates will copy to clipboard
+6. Format: lat: 17.3850, lng: 78.4867
+
+---
+
+## Creating RSVP Google Form
+
+Steps:
+1. Go to https://forms.google.com
+2. Click "Create new form"
+3. Add title "Wedding RSVP"
+4. Add these fields:
+   - Guest Name (Short answer)
+   - Number of Guests (Multiple choice: 1, 2, 3, 4+)
+   - Will You Attend (Yes/No)
+   - Dietary Restrictions (Short answer)
+5. Click Share button
+6. Copy the form link
+7. Paste into script.js line 10
+
+---
+
+## Tips for Best Results
+
+1. **Testing**: Always test on mobile before sharing
+2. **Updates**: Keep website updated with latest info
+3. **Backup**: Save original files before making changes
+4. **Domain**: Use custom domain for professional look
+5. **Analytics**: Track visitors using Google Analytics
+6. **Mobile**: Ensure all links work on mobile
+7. **Speed**: Keep load time under 3 seconds
+
+---
+
+## Support Resources
+
+- **Google Maps Help:** https://support.google.com/maps
+- **Google Forms Help:** https://support.google.com/docs
+- **Netlify Help:** https://www.netlify.com/support
+- **Browser DevTools:** F12 or right-click > Inspect
+
+---
+
+## Version History
+
+Version 1.0 - Initial Release
+- Complete wedding invitation website
+- 5 ceremony sections
+- Google Maps integration
+- QR code generation
+- Responsive design
+- South Indian Telugu elements
+
+---
+
+Last Updated: 2024
+
+Enjoy your special day! 💕
