@@ -6,6 +6,7 @@
     <title>Wedding Invitation | Akhil & Sai Susmitha</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
 </head>
@@ -35,7 +36,21 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- QR section removed per request -->
+        <header class="header">
+            <div class="header-decoration top">
+                <span class="ornament">॥</span>
+                <span class="ornament">✦</span>
+                <span class="ornament">॥</span>
+            </div>
+            <div class="header-content">
+                <h1 class="main-title">Together Forever</h1>
+                <p class="subtitle">आमंत्रण</p>
+                <p class="subtitle-en">Invitation</p>
+            </div>
+            <div class="header-decoration bottom">
+                <span class="ornament">॥</span>
+                <span class="ornament">✦</span>
+                <span class="ornament">॥</span>
             </div>
         </header>
 
@@ -107,48 +122,20 @@
             </div>
         </section>
 
-        <!-- QR Code Section -->
         <section class="qr-section">
-        
+            <h3 class="section-title">Location QR Codes</h3>
             <div class="qr-container">
                 <div class="qr-box">
-                    <div id="qrcode"></div>
-                    <p class="qr-label">Scan to RSVP</p>
+                    <h4>Wedding Venue QR</h4>
+                    <div id="weddingLocationQr"></div>
+                    <p class="qr-label">Scan to open wedding location</p>
+                    <p><a id="weddingLocationLink" href="https://maps.app.goo.gl/zebWsFqyQCBbUdCE9" target="_blank" class="map-link">Open in Google Maps</a></p>
                 </div>
                 <div class="qr-box">
-                    <div class="qr-text-box">
-                        <h4>Join Our Celebration</h4>
-                        <p>📞 Call: +91 98765 43210</p>
-                        <p>📧 Email: akhil.priya@email.com</p>
-                        <p>💬 WhatsApp: +91 98765 43210</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Telugu Traditions Section -->
-        <section class="traditions-section">
-            <h3 class="section-title">South Indian Traditions</h3>
-            <div class="traditions-grid">
-                <div class="tradition-card">
-                    <div class="tradition-icon">👰</div>
-                    <h4>Bridal Attire</h4>
-                    <p>Traditional Saree with Kanjeevaram silk and temple jewelry</p>
-                </div>
-                <div class="tradition-card">
-                    <div class="tradition-icon">🤵</div>
-                    <h4>Groom's Attire</h4>
-                    <p>Dhoti, Shirt and Traditional Turban (Pagri)</p>
-                </div>
-                <div class="tradition-card">
-                    <div class="tradition-icon">🌸</div>
-                    <h4>Flower Decorations</h4>
-                    <p>Jasmine flowers and Marigold garlands</p>
-                </div>
-                <div class="tradition-card">
-                    <div class="tradition-icon">🎭</div>
-                    <h4>Vedic Rituals</h4>
-                    <p>Sacred ceremonies performed by Vedic priests</p>
+                    <h4>Reception Venue QR</h4>
+                    <div id="receptionLocationQr"></div>
+                    <p class="qr-label">Scan to open reception location</p>
+                    <p><a id="receptionLocationLink" href="https://maps.app.goo.gl/hGMFKp3bhmyhDBiNA" target="_blank" class="map-link">Open in Google Maps</a></p>
                 </div>
             </div>
         </section>

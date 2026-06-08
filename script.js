@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeMap();
     }
 
+    // Create location QR codes for map links
+    createLocationQRCodes();
+
     // Smooth scroll for any anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -33,6 +36,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll animations
     observeElements();
 });
+
+function createLocationQRCodes() {
+    if (typeof QRCode === 'undefined') return;
+
+    const weddingLink = weddingConfig && weddingConfig.venue ? weddingConfig.venue.mapLink : '';
+    const receptionLink = weddingConfig && weddingConfig.receptionVenue ? weddingConfig.receptionVenue.mapLink : '';
+
+    const weddingQr = document.getElementById('weddingLocationQr');
+    const receptionQr = document.getElementById('receptionLocationQr');
+
+    if (weddingQr && weddingLink) {
+        new QRCode(weddingQr, {
+            text: weddingLink,
+            width: 200,
+            height: 200,
+            colorDark: "#D4145A",
+            colorLight: "#FFFFFF",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+
+    if (receptionQr && receptionLink) {
+        new QRCode(receptionQr, {
+            text: receptionLink,
+            width: 200,
+            height: 200,
+            colorDark: "#D4145A",
+            colorLight: "#FFFFFF",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+}
 
 // Initialize Google Map
 function initializeMap() {
