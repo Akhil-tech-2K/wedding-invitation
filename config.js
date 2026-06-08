@@ -29,11 +29,18 @@ const weddingConfig = {
 
     // Venue Location (Google Maps)
     venue: {
-        name: "Temple Grounds",
-        address: "Temple Road, Hyderabad, Telangana 500082",
-        latitude: 17.3850,
-        longitude: 78.4867,
-        mapLink: "https://goo.gl/maps/example"
+        name: "Dr. Metla Satyanarayanarao Kapu Kalyana Mandapam",
+        address: "Gandu Street, Amalapuram",
+        latitude: 16.5833,
+        longitude: 82.0167,
+        mapLink: "https://maps.app.goo.gl/zebWsFqyQCBbUdCE9"
+    },
+
+    // Reception Venue (Google Maps)
+    receptionVenue: {
+        name: "Pentakota Function Hall",
+        address: "Anakapalli",
+        mapLink: "https://maps.app.goo.gl/hGMFKp3bhmyhDBiNA"
     },
 
     // Ceremonies
@@ -68,7 +75,7 @@ const weddingConfig = {
             icon: "💍",
             date: "July 23, 2024",
             time: "5:00 PM Onwards",
-            venue: "Temple Grounds, Hyderabad"
+            venue: "Dr. Metla Satyanarayanarao Kapu Kalyana Mandapam, Gandu Street, Amalapuram"
         },
         {
             name: "Reception",
@@ -76,7 +83,7 @@ const weddingConfig = {
             icon: "🎂",
             date: "July 24, 2024",
             time: "6:00 PM - 11:00 PM",
-            venue: "Grand Hotel, Hyderabad"
+            venue: "Pentakota Function Hall, Anakapalli"
         }
     ],
 
