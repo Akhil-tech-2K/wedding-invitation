@@ -207,3 +207,122 @@ function shareToFacebook() {
 window.shareToWhatsApp = shareToWhatsApp;
 window.shareToFacebook = shareToFacebook;
 window.addToCalendar = addToCalendar;
+
+// ===== MUSIC PLAYER =====
+document.addEventListener('DOMContentLoaded', function() {
+    const musicBtn = document.getElementById('musicToggle');
+    const audio = document.getElementById('backgroundMusic');
+    let isPlaying = false;
+
+    if (musicBtn && audio) {
+        musicBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                audio.play().catch(function(error) {
+                    console.log("Audio play failed:", error);
+                });
+                musicBtn.classList.add('playing');
+                isPlaying = true;
+            }
+        });
+
+        // Start music automatically with user interaction
+        document.addEventListener('click', function autoStart() {
+            if (!isPlaying) {
+                audio.play().catch(function(error) {
+                    console.log("Auto-play prevented by browser");
+                });
+                musicBtn.classList.add('playing');
+                isPlaying = true;
+                document.removeEventListener('click', autoStart);
+            }
+        }, { once: true });
+    }
+});
+
+// ===== CONFETTI ANIMATION =====
+function createConfetti() {
+    const container = document.getElementById('confetti-container');
+    if (!container) return;
+
+    const colors = ['#D4145A', '#FDB750', '#F37335', '#FFD700', '#FF69B4', '#FF1493'];
+    const confettiCount = 50;
+
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        
+        const size = Math.random() * 10 + 5;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const left = Math.random() * 100;
+        const delay = Math.random() * 0.5;
+        const duration = Math.random() * 2 + 2.5;
+
+        confetti.style.left = left + '%';
+        confetti.style.top = '-20px';
+        confetti.style.width = size + 'px';
+        confetti.style.height = size + 'px';
+        confetti.style.backgroundColor = color;
+        confetti.style.borderRadius = '50%';
+        confetti.style.animation = `confettiFall ${duration}s linear ${delay}s forwards`;
+
+        container.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, (duration + delay) * 1000);
+    }
+}
+
+// Trigger confetti on page load
+window.addEventListener('load', function() {
+    setTimeout(createConfetti, 500);
+});
+
+// Trigger confetti on scroll to couple section
+const coupleSection = document.querySelector('.couple-section');
+if (coupleSection) {
+    let confettiTriggered = false;
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !confettiTriggered) {
+                createConfetti();
+                confettiTriggered = true;
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(coupleSection);
+}
+
+// ===== ENHANCED SCROLL ANIMATIONS =====
+// Add scale animation on hover for ceremony cards
+document.addEventListener('DOMContentLoaded', function() {
+    const ceremonyCards = document.querySelectorAll('.ceremony-card');
+    
+    ceremonyCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0) scale(1)';
+        });
+    });
+});
+
+// Sparkle animation on header
+const headerTitle = document.querySelector('.main-title');
+if (headerTitle) {
+    headerTitle.addEventListener('click', function() {
+        createConfetti();
+    });
+    
+    // Add title animation
+    headerTitle.style.cursor = 'pointer';
+    headerTitle.title = 'Click for celebration!';
+}

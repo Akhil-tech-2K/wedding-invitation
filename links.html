@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhil & Priya - Wedding Invitation</title>
+    <title>Akhil & Sai Susmitha - Wedding Invitation</title>
     <style>
         * {
             margin: 0;
@@ -370,9 +370,110 @@
                 letter-spacing: 5px;
             }
         }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .music-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4145A, #F37335);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 20, 90, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(212, 20, 90, 0.6);
+        }
+
+        .music-btn.playing {
+            animation: musicBeat 0.6s ease-in-out infinite;
+        }
+
+        .music-icon {
+            font-size: 28px;
+        }
+
+        .music-text {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes musicBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Confetti Animation */
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .confetti-piece {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="flower-animation">
+        <div class="flower flower-1">🌸</div>
+        <div class="flower flower-2">🌼</div>
+        <div class="flower flower-3">🌺</div>
+        <div class="flower flower-4">🌻</div>
+        <div class="flower flower-5">🌷</div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn" title="Toggle Music">
+            <span class="music-icon">🎵</span>
+            <span class="music-text">Music</span>
+        </button>
+        <audio id="backgroundMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
     <div class="flower-animation">
         <div class="flower flower-1">🌸</div>
         <div class="flower flower-2">🌼</div>
@@ -503,6 +604,80 @@
     </div>
 
     <script>
+        // Music Player Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicBtn = document.getElementById('musicToggle');
+            const audio = document.getElementById('backgroundMusic');
+            let isPlaying = false;
+
+            if (musicBtn && audio) {
+                musicBtn.addEventListener('click', function() {
+                    if (isPlaying) {
+                        audio.pause();
+                        musicBtn.classList.remove('playing');
+                        isPlaying = false;
+                    } else {
+                        audio.play().catch(function(error) {
+                            console.log("Audio play failed:", error);
+                        });
+                        musicBtn.classList.add('playing');
+                        isPlaying = true;
+                    }
+                });
+
+                // Start music automatically with user interaction
+                document.addEventListener('click', function autoStart() {
+                    if (!isPlaying) {
+                        audio.play().catch(function(error) {
+                            console.log("Auto-play prevented by browser");
+                        });
+                        musicBtn.classList.add('playing');
+                        isPlaying = true;
+                        document.removeEventListener('click', autoStart);
+                    }
+                }, { once: true });
+            }
+        });
+
+        // Confetti Animation
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            if (!container) return;
+
+            const colors = ['#D4145A', '#FDB750', '#F37335', '#FFD700', '#FF69B4', '#FF1493'];
+            const confettiCount = 50;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                
+                const size = Math.random() * 10 + 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const left = Math.random() * 100;
+                const delay = Math.random() * 0.5;
+                const duration = Math.random() * 2 + 2.5;
+
+                confetti.style.left = left + '%';
+                confetti.style.top = '-20px';
+                confetti.style.width = size + 'px';
+                confetti.style.height = size + 'px';
+                confetti.style.backgroundColor = color;
+                confetti.style.borderRadius = '50%';
+                confetti.style.animation = `confettiFall ${duration}s linear ${delay}s forwards`;
+
+                container.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, (duration + delay) * 1000);
+            }
+        }
+
+        // Trigger confetti on page load
+        window.addEventListener('load', function() {
+            setTimeout(createConfetti, 500);
+        });
+
         // Update contact links with actual details
         document.addEventListener('DOMContentLoaded', function() {
             // You can update these with your actual contact details
@@ -514,7 +689,7 @@
             if(callBtn) callBtn.href = `tel:+91${phone}`;
             
             const whatsappBtn = document.querySelector('a[href*="wa.me"]');
-            if(whatsappBtn) whatsappBtn.href = `https://wa.me/91${phone}?text=Hello%20Akhil%20and%20Priya`;
+            if(whatsappBtn) whatsappBtn.href = `https://wa.me/91${phone}?text=Hello%20Akhil%20and%20Sai%20Susmitha`;
             
             const emailBtn = document.querySelector('a[href*="mailto:"]');
             if(emailBtn) emailBtn.href = `mailto:${email}`;

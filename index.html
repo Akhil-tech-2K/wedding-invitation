@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation | Akhil & Priya</title>
+    <title>Wedding Invitation | Akhil & Sai Susmitha</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1234567890abcdefghijklmnopqr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
 </head>
 <body>
     <!-- Animated Flowers Background -->
@@ -18,6 +19,20 @@
         <div class="flower flower-4">🌻</div>
         <div class="flower flower-5">🌷</div>
     </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn" title="Toggle Music">
+            <span class="music-icon">🎵</span>
+            <span class="music-text">Music</span>
+        </button>
+        <audio id="backgroundMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
 
     <!-- Main Container -->
     <div class="container">
