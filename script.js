@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Generate QR Code for RSVP
     const qrcodeDiv = document.getElementById('qrcode');
     if (qrcodeDiv) {
+        const rsvpLink = (typeof weddingConfig !== 'undefined' && weddingConfig.rsvp && weddingConfig.rsvp.googleFormLink) ? weddingConfig.rsvp.googleFormLink : 'https://forms.gle/your-rsvp-form-link';
         new QRCode(qrcodeDiv, {
-            text: 'https://forms.gle/your-rsvp-form-link', // Replace with your actual form link
-            width: 200,
-            height: 200,
+            text: rsvpLink,
+            width: (weddingConfig && weddingConfig.rsvp && weddingConfig.rsvp.qrCodeSize) ? weddingConfig.rsvp.qrCodeSize : 200,
+            height: (weddingConfig && weddingConfig.rsvp && weddingConfig.rsvp.qrCodeSize) ? weddingConfig.rsvp.qrCodeSize : 200,
             colorDark: "#D4145A",
             colorLight: "#FFFFFF",
             correctLevel: QRCode.CorrectLevel.H
@@ -14,7 +15,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize Google Map
-    initializeMap();
+    // Load Google Maps dynamically using key from config if available
+    if (typeof weddingConfig !== 'undefined' && weddingConfig.googleMapsApiKey && weddingConfig.googleMapsApiKey !== 'YOUR_API_KEY_HERE') {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${weddingConfig.googleMapsApiKey}`;
+        script.defer = true;
+        script.async = true;
+        script.onload = () => initializeMap();
+        document.head.appendChild(script);
+    } else {
+        // Attempt to initialize map anyway (may fail if API not loaded)
+        initializeMap();
+    }
 
     // Smooth scroll for any anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -37,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize Google Map
 function initializeMap() {
     // Coordinates for Hyderabad (you can change this to your actual venue)
-    const venueLocation = {
-        lat: 17.3850,
-        lng: 78.4867
-    };
+    // Use coordinates from config if provided
+    const venueLocation = (typeof weddingConfig !== 'undefined' && weddingConfig.venue && weddingConfig.venue.latitude && weddingConfig.venue.longitude) ?
+        { lat: weddingConfig.venue.latitude, lng: weddingConfig.venue.longitude } :
+        { lat: 17.3850, lng: 78.4867 };
 
     const mapElement = document.getElementById('map');
     if (mapElement) {
@@ -75,10 +87,10 @@ function initializeMap() {
         const infoWindow = new google.maps.InfoWindow({
             content: `
                 <div style="padding: 10px; font-family: Arial;">
-                    <h3 style="margin: 0 0 10px 0; color: #D4145A;">Wedding Venue</h3>
-                    <p style="margin: 0;"><strong>Temple Road</strong></p>
-                    <p style="margin: 0;">Hyderabad, Telangana 500082</p>
-                    <p style="margin: 10px 0 0 0; font-size: 12px;">July 23, 2024 - 5:00 PM</p>
+                    <h3 style="margin: 0 0 10px 0; color: #D4145A;">${weddingConfig && weddingConfig.venue ? weddingConfig.venue.name : 'Wedding Venue'}</h3>
+                    <p style="margin: 0;"><strong>${weddingConfig && weddingConfig.venue ? weddingConfig.venue.address : ''}</strong></p>
+                    <p style="margin: 0;">${weddingConfig && weddingConfig.venue ? (weddingConfig.venue.city || '') : ''}</p>
+                    <p style="margin: 10px 0 0 0; font-size: 12px;">${(weddingConfig && weddingConfig.ceremonies && weddingConfig.ceremonies[0]) ? weddingConfig.ceremonies[0].date + ' - ' + weddingConfig.ceremonies[0].time : ''}</p>
                 </div>
             `
         });
