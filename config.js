@@ -6,7 +6,7 @@ const weddingConfig = {
     bride: {
         name: "Sai Susmitha",
         teluguName: "వధువు",
-        father: "Sri Vanteddu Prasad",
+        father: "Sri Vonteddu Prasad",
         mother: "Smt. Mallika"
     },
     
