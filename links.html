@@ -451,6 +451,7 @@
             }
         }
     </style>
+    <script src="config.js"></script>
 </head>
 <body>
     <div class="flower-animation">
@@ -693,6 +694,58 @@
             
             const emailBtn = document.querySelector('a[href*="mailto:"]');
             if(emailBtn) emailBtn.href = `mailto:${email}`;
+        });
+
+        // Populate page from config.js when available
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof weddingConfig === 'undefined') return;
+
+            // Names
+            const namesEl = document.querySelector('.names');
+            if (namesEl && weddingConfig.groom && weddingConfig.bride) {
+                namesEl.textContent = `${weddingConfig.groom.name} & ${weddingConfig.bride.name}`;
+            }
+
+            // Main date
+            const dateEl = document.querySelector('.date');
+            if (dateEl && weddingConfig.ceremonies && weddingConfig.ceremonies[0]) {
+                dateEl.textContent = weddingConfig.ceremonies[0].date;
+            }
+
+            // Wedding details (Sumuhurtham and Reception)
+            const detailValues = document.querySelectorAll('.wedding-details .detail-value');
+            if (detailValues && weddingConfig.ceremonies) {
+                if (detailValues[0] && weddingConfig.ceremonies[0]) {
+                    detailValues[0].textContent = `${weddingConfig.ceremonies[0].date}, ${weddingConfig.ceremonies[0].time}`;
+                }
+                if (detailValues[1] && weddingConfig.ceremonies[1]) {
+                    detailValues[1].textContent = `${weddingConfig.ceremonies[1].date}, ${weddingConfig.ceremonies[1].time}`;
+                }
+            }
+
+            // Contact links
+            const phone = (weddingConfig.contact && weddingConfig.contact.phone) ? weddingConfig.contact.phone.replace(/\s+/g,'') : null;
+            const email = (weddingConfig.contact && weddingConfig.contact.email) ? weddingConfig.contact.email : null;
+            const whatsapp = (weddingConfig.contact && weddingConfig.contact.whatsapp) ? weddingConfig.contact.whatsapp.replace(/\s+/g,'').replace('+','') : null;
+
+            const callBtn = document.querySelector('a[href*="tel:"]');
+            if (callBtn && phone) callBtn.href = `tel:${phone}`;
+
+            const whatsappBtn = document.querySelector('a[href*="wa.me"]');
+            if (whatsappBtn && whatsapp) whatsappBtn.href = `https://wa.me/${whatsapp}?text=Hello%20${encodeURIComponent(weddingConfig.groom.name)}%20and%20${encodeURIComponent(weddingConfig.bride.name)}`;
+
+            const emailBtn = document.querySelector('a[href*="mailto:"]');
+            if (emailBtn && email) emailBtn.href = `mailto:${email}`;
+
+            // RSVP button
+            const rsvpBtn = Array.from(document.querySelectorAll('.contact-btn')).find(a => a.textContent.includes('RSVP'));
+            if (rsvpBtn && weddingConfig.rsvp && weddingConfig.rsvp.googleFormLink) rsvpBtn.href = weddingConfig.rsvp.googleFormLink;
+
+            // Countdown text
+            const countdownText = document.querySelector('.countdown-text');
+            if (countdownText && weddingConfig.ceremonies && weddingConfig.ceremonies[0]) {
+                countdownText.innerHTML = `${weddingConfig.ceremonies[0].date} - ${weddingConfig.venue.address}<br>${weddingConfig.ceremonies[0].details || ''} - ${weddingConfig.ceremonies[0].time}`;
+            }
         });
     </script>
 </body>
