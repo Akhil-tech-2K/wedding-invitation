@@ -20,13 +20,6 @@ const weddingConfig = {
     // Wedding Title
     title: "Together Forever",
     
-    // Contact Information
-    contact: {
-        phone: "+91 98765 43210",
-        whatsapp: "+91 98765 43210",
-        email: "akhil.priya@email.com"
-    },
-
     // Venue Location (Google Maps)
     venue: {
         name: "Dr. Metla Satyanarayanarao Kapu Kalyana Mandapam",
