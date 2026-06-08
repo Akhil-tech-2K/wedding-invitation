@@ -190,5 +190,28 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Floating action buttons -->
+    <div class="fab-container" aria-hidden="false">
+        <div id="shareFab" class="fab" title="Share">🔗</div>
+        <div id="directionsFab" class="fab" title="Directions">🗺️</div>
+        <div id="calendarFab" class="fab" title="Add to Calendar">📅</div>
+    </div>
+
+    <!-- Ceremony Modal -->
+    <div id="ceremonyModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-header">
+            <div class="modal-title" id="modalTitle">Ceremony</div>
+            <button id="modalClose" class="btn btn-outline">Close</button>
+        </div>
+        <div class="modal-body" id="modalBody">Details here</div>
+        <div class="modal-actions">
+            <button id="modalMap" class="btn btn-primary">Open Map</button>
+            <button id="modalCalendar" class="btn btn-outline">Add to Calendar</button>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <div id="backToTop" class="back-to-top" title="Back to top">⬆️</div>
 </body>
 </html>

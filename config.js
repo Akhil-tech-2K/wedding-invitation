@@ -128,6 +128,9 @@ const weddingConfig = {
     // Google Maps API Key
     googleMapsApiKey: "YOUR_API_KEY_HERE",
 
+    // Background music (public MP3 URL) — set to empty to disable
+    musicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+
     // Wedding Date for Countdown (if enabled)
     weddingDate: "2026-07-02T20:23:00",
 

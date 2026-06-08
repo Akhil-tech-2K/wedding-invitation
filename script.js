@@ -215,6 +215,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let isPlaying = false;
 
     if (musicBtn && audio) {
+        // Use config music URL if provided
+        if (typeof weddingConfig !== 'undefined' && weddingConfig.musicUrl) {
+            const source = audio.querySelector('source');
+            if (source) source.src = weddingConfig.musicUrl;
+            audio.load();
+        }
         musicBtn.addEventListener('click', function() {
             if (isPlaying) {
                 audio.pause();
@@ -242,6 +248,90 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { once: true });
     }
 });
+
+// ===== FABs: Share / Directions / Add to Calendar =====
+document.addEventListener('DOMContentLoaded', function() {
+    const shareFab = document.getElementById('shareFab');
+    const directionsFab = document.getElementById('directionsFab');
+    const calendarFab = document.getElementById('calendarFab');
+
+    if (shareFab) {
+        shareFab.addEventListener('click', function() {
+            // Prefer Web Share API
+            const title = `${weddingConfig.groom.name} & ${weddingConfig.bride.name}`;
+            const text = `Join us: ${title} — ${weddingConfig.ceremonies[0].date}`;
+            const url = weddingConfig.sharing && weddingConfig.sharing.websiteUrl ? weddingConfig.sharing.websiteUrl : window.location.href;
+            if (navigator.share) {
+                navigator.share({ title, text, url }).catch(()=>{});
+            } else {
+                // fallback: copy link
+                navigator.clipboard && navigator.clipboard.writeText(url).then(()=> alert('Link copied to clipboard'));
+            }
+        });
+    }
+
+    if (directionsFab) {
+        directionsFab.addEventListener('click', function() {
+            const mapLink = (weddingConfig && weddingConfig.venue && weddingConfig.venue.mapLink) ? weddingConfig.venue.mapLink : (weddingConfig.receptionVenue && weddingConfig.receptionVenue.mapLink) ? weddingConfig.receptionVenue.mapLink : '';
+            if (mapLink) window.open(mapLink, '_blank');
+        });
+    }
+
+    if (calendarFab) {
+        calendarFab.addEventListener('click', function() {
+            if (weddingConfig && weddingConfig.ceremonies && weddingConfig.ceremonies[0]) {
+                const c = weddingConfig.ceremonies[0];
+                const dt = new Date(weddingConfig.weddingDate || new Date());
+                const link = addToCalendar(c.name, dt, weddingConfig.venue ? weddingConfig.venue.name : '');
+                window.open(link, '_blank');
+            }
+        });
+    }
+});
+
+// ===== Ceremony modal behavior =====
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('ceremonyModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+    const modalMap = document.getElementById('modalMap');
+    const modalCalendar = document.getElementById('modalCalendar');
+
+    function openModal(ceremony) {
+        modalTitle.textContent = ceremony.name;
+        modalBody.innerHTML = `<p><strong>Date:</strong> ${ceremony.date}</p><p><strong>Time:</strong> ${ceremony.time}</p><p>${ceremony.details || ''}</p><p><strong>Venue:</strong> ${ceremony.venue}</p>`;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+
+        modalMap.onclick = () => { if (ceremony.mapLink) window.open(ceremony.mapLink, '_blank'); };
+        modalCalendar.onclick = () => { const dt = new Date(weddingConfig.weddingDate || new Date()); window.open(addToCalendar(ceremony.name, dt, ceremony.venue), '_blank'); };
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+
+    modalClose && modalClose.addEventListener('click', closeModal);
+
+    // Attach modal openers to ceremony cards
+    document.querySelectorAll('.ceremony-card').forEach((card, idx) => {
+        card.addEventListener('click', () => {
+            const ceremony = (weddingConfig && weddingConfig.ceremonies && weddingConfig.ceremonies[idx]) ? weddingConfig.ceremonies[idx] : null;
+            if (ceremony) openModal(ceremony);
+        });
+        card.style.cursor = 'pointer';
+    });
+});
+
+// ===== Back to top =====
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (!backToTop) return;
+    if (window.pageYOffset > 400) backToTop.classList.add('show'); else backToTop.classList.remove('show');
+});
+backToTop && backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
 // ===== CONFETTI ANIMATION =====
 function createConfetti() {
