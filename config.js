@@ -4,19 +4,17 @@
 const weddingConfig = {
     // Bride & Groom Information
     bride: {
-        name: "Priya",
+        name: "Sai Susmitha",
         teluguName: "వధువు",
-        father: "Mr. Suresh",
-        mother: "Mrs. Savitri",
-        brother: "Arjun"
+        father: "Sri Vanteddu Prasad",
+        mother: "Smt. Mallika"
     },
     
     groom: {
         name: "Akhil",
         teluguName: "వరుడు",
-        father: "Mr. Ramesh",
-        mother: "Mrs. Lakshmi",
-        sister: "Divya"
+        father: "Sri Sopeti Venkateswara Rao",
+        mother: "Smt. Sandhya"
     },
 
     // Wedding Title
