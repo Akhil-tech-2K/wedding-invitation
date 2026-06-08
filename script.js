@@ -1,18 +1,6 @@
 // Initialize QR Code
 document.addEventListener('DOMContentLoaded', function() {
-    // Generate QR Code for RSVP
-    const qrcodeDiv = document.getElementById('qrcode');
-    if (qrcodeDiv) {
-        const rsvpLink = (typeof weddingConfig !== 'undefined' && weddingConfig.rsvp && weddingConfig.rsvp.googleFormLink) ? weddingConfig.rsvp.googleFormLink : 'https://forms.gle/your-rsvp-form-link';
-        new QRCode(qrcodeDiv, {
-            text: rsvpLink,
-            width: (weddingConfig && weddingConfig.rsvp && weddingConfig.rsvp.qrCodeSize) ? weddingConfig.rsvp.qrCodeSize : 200,
-            height: (weddingConfig && weddingConfig.rsvp && weddingConfig.rsvp.qrCodeSize) ? weddingConfig.rsvp.qrCodeSize : 200,
-            colorDark: "#D4145A",
-            colorLight: "#FFFFFF",
-            correctLevel: QRCode.CorrectLevel.H
-        });
-    }
+    // QR code removed — not required for this invitation
 
     // Initialize Google Map
     // Load Google Maps dynamically using key from config if available
